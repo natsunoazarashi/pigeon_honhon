@@ -20,3 +20,6 @@ $RECYCLE.BIN/
 *.swo
 *.swn
 *~
+
+raw_audio_files/
+highscore.txt

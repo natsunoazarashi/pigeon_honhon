@@ -41,7 +41,7 @@ def run_game(screen, clock, font, high_score):
     pass_sound.set_volume(0.8)
 
     # Play background music
-    pygame.mixer.music.load("assets/sounds/bg_music.mp3")
+    pygame.mixer.music.load("assets/sounds/main_music.wav")
     pygame.mixer.music.set_volume(0.3)  # Volume between 0.0 et 1.0
     pygame.mixer.music.play(-1)  # -1 = infinite loop
 

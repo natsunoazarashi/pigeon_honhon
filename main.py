@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 from game_logic import run_game  # importing game logic
+from title_screen_scene import TitleScreen # importing title screen
 
 pygame.init()
 
@@ -9,13 +10,20 @@ pygame.init()
 WIDTH, HEIGHT = 800, 512
 FPS = 60
 
-# Fenêtre
+
+
+# screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pigeon on the Seine")
+pygame.display.set_caption("Pigeon Hon Hon")
+
+# Load splash screen
+# title_img = pygame.image.load("assets/background/title_screen.png").convert()
 
 # Clock and font
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 36)
+
+
 
 # high score loading
 high_score = 0
@@ -31,6 +39,7 @@ game_state = 'start'
 last_score = 0
 
 running = True
+title_screen = TitleScreen()
 while running:
     clock.tick(FPS)
 
@@ -47,10 +56,11 @@ while running:
     screen.fill((0, 0, 0))  # cleans screen
 
     if game_state == 'start':
-        title = font.render("🐦 Pigeon on the Seine", True, (255, 255, 255))
-        subtitle = font.render("Press SPACE to start", True, (200, 200, 200))
-        screen.blit(title, (WIDTH // 2 - title.get_width() // 2, HEIGHT // 2 - 40))
-        screen.blit(subtitle, (WIDTH // 2 - subtitle.get_width() // 2, HEIGHT // 2 + 10))
+        # screen.blit(title_img, (0, 0))  # 💡 Affiche le splash screen
+        title_screen.update()
+        title_screen.draw(screen)
+        prompt = font.render("Press SPACE to start", True, (255, 255, 255))
+        screen.blit(prompt, (WIDTH // 2 - prompt.get_width() // 2, HEIGHT - 50))
         pygame.display.update()
         continue
 

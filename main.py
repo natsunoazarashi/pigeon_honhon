@@ -3,6 +3,7 @@ import sys
 import os
 from game_logic import run_game  # importing game logic
 from title_screen_scene import TitleScreen # importing title screen
+from game_over_scene import GameOverScene # importing game over screen
 
 pygame.init()
 
@@ -40,6 +41,7 @@ last_score = 0
 
 running = True
 title_screen = TitleScreen()
+game_over_scene = GameOverScene()
 while running:
     clock.tick(FPS)
 
@@ -83,6 +85,7 @@ while running:
             high_score = last_score
             with open("highscore.txt", "w") as file:
                 file.write(str(high_score))
+        game_over_scene.play(screen)
         game_state = 'game_over'
 
 pygame.quit()

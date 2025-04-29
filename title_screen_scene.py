@@ -46,7 +46,6 @@ class TitleScreen:
         eiffel_y = 260 - self.eiffel.get_height() + 25    # move 25px down # manually aligned to background "ground"
         eiffel_y = max(0, eiffel_y)  # ensures the tower is not drawn offscreen
         # TEMP: draw a red rectangle where the Eiffel Tower should be
-        # pygame.draw.rect(screen, (255, 0, 0), (eiffel_x, eiffel_y, self.eiffel.get_width(), self.eiffel.get_height()), 2)
         screen.blit(self.eiffel, (eiffel_x, eiffel_y))
 
         screen.blit(self.foreground, (0, 0))  # Foreground: bench, pigeon, text

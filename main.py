@@ -18,7 +18,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pigeon Hon Hon")
 
 # Load splash screen
-# title_img = pygame.image.load("assets/background/title_screen.png").convert()
 
 # Clock and font
 clock = pygame.time.Clock()
@@ -57,8 +56,7 @@ while running:
 
     screen.fill((0, 0, 0))  # cleans screen
 
-    if game_state == 'start':
-        # screen.blit(title_img, (0, 0))  # 💡 Affiche le splash screen
+    if game_state == 'start':   
         title_screen.update()
         title_screen.draw(screen)
         prompt = font.render("Press SPACE to start", True, (255, 255, 255))

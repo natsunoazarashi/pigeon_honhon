@@ -24,9 +24,9 @@ class GameOverScene:
         frame_index = 0
         num_frames = len(self.frames)
 
-        # Durée animation normale (5 sec)
+        # 5 seconds animation
         animation_duration = 5000
-        fade_duration = 1000  # 1 seconde de fade
+        fade_duration = 1000  # 1 second
 
         fade_started = False
         fade_surface = pygame.Surface((WIDTH, HEIGHT))
@@ -41,7 +41,7 @@ class GameOverScene:
 
             screen.blit(self.background, (0, 0))
 
-            # Animation pigeon
+            # pigeon animation
             if elapsed < animation_duration:
                 frame = self.frames[frame_index]
                 screen.blit(frame, (
@@ -50,7 +50,7 @@ class GameOverScene:
                 ))
                 frame_index = (frame_index + 1) % num_frames
 
-            # Début du fade après les 5 sec
+            # fade starts after 5 secs
             if elapsed > animation_duration:
                 fade_alpha = int(((elapsed - animation_duration) / fade_duration) * 255)
                 fade_alpha = min(fade_alpha, 255)
